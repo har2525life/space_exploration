@@ -5,12 +5,12 @@ module.exports = {
   entry: "./src/index.js",
   // 出力先 __dirname 現在のwebpackの階層と同じ
   output: {
-    path: `${__dirname}/dist`,
+    path: `${__dirname}/public`,
     filename: "bundle.js",
   },
   // ローカルサーバーで見に行くときの設定
   devServer: {
-    static: "./dist",
+    static: "./public",
   },
   // 拡張子を書かなくてもよくするように
   resolve: {
