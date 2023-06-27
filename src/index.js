@@ -1,12 +1,10 @@
 import {
-  Clock,
-  Mesh,
-  MeshBasicMaterial,
   PerspectiveCamera,
-  PlaneGeometry,
   Scene,
-  TextureLoader,
   WebGLRenderer,
+  BoxGeometry,
+  MeshNormalMaterial,
+  Mesh,
 } from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls";
 
@@ -25,7 +23,14 @@ const canvas = document.getElementById("canvas");
 const scene = new Scene();
 
 const camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
+camera.position.set(0,0,10)
 scene.add(camera);
+
+// geometry
+const boxGeometry = new BoxGeometry(1, 1, 1);
+const boxMaterial = new MeshNormalMaterial();
+const box = new Mesh(boxGeometry, boxMaterial);
+scene.add(box);
 
 // control
 const controls = new OrbitControls(camera, canvas);
